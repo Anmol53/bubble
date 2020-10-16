@@ -1,13 +1,18 @@
-function generateBubbles(id, n) {
+async function generateBubbles(id, n) {
   for(let i = 1; i <= n; i++){
     let bubble = document.createElement("div");
     bubble.id = id + "_bubble_" + i;
     bubble.classList.add("bubble");
     bubble.innerHTML = '<img src="http://anmolagrawal.me/images/bubble2.png">';
+    await sleep(150);
     document.getElementById(id).appendChild(bubble);
     randomGradientBackground(bubble.id);
     bubbleMotion(id, bubble.id);
   }
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function randomGradientBackground(id){
