@@ -1,0 +1,41 @@
+body{
+  height: 1000px;
+}
+img{
+  height: 100px;
+}
+
+.bubble{
+  animation: bgcolor 1s ease infinite;
+  background-size: 400% 400%;
+  border-radius: 50%;
+  display: inline-block;
+  height: 100px;
+  opacity: 0.7;
+  position: absolute;
+  width: 100px;
+}
+
+.container{
+  box-shadow: 1px 1px 2px 3px #ccc;
+  display: inline-block;
+  height: 500px;
+  margin: 1rem;
+  width: 47%;
+}
+
+.container:hover{
+  box-shadow: 3px 3px 5px 6px #ccc;
+}
+
+@keyframes bgcolor {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
