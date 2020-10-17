@@ -4,7 +4,7 @@ async function generateBubbles(id, n) {
     bubble.id = id + "_bubble_" + i;
     bubble.classList.add("bubble");
     bubble.innerHTML = '<img src="http://anmolagrawal.me/images/bubble2.png">';
-    await sleep(150);
+//     await sleep(150);
     document.getElementById(id).appendChild(bubble);
     randomGradientBackground(bubble.id);
     bubbleMotion(id, bubble.id);
