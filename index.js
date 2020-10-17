@@ -1,4 +1,4 @@
-async function generateBubbles(id, n) {
+/* function*/ generateBubbles(id, n) {
   for(let i = 1; i <= n; i++){
     let bubble = document.createElement("div");
     bubble.id = id + "_bubble_" + i;
