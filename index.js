@@ -3,7 +3,7 @@ async function generateBubbles(id, n) {
     let bubble = document.createElement("div");
     bubble.id = id + "_bubble_" + i;
     bubble.classList.add("bubble");
-    bubble.innerHTML = '<img src="http://anmolagrawal.me/images/bubble2.png">';
+    bubble.innerHTML = '<img src="http://anmolagrawal.tech/images/bubble2.png">';
     await sleep(150);
     document.getElementById(id).appendChild(bubble);
     randomGradientBackground(bubble.id);
