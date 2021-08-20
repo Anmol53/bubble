@@ -1,11 +1,12 @@
-body{
+body {
   height: 97vh;
 }
-img{
+
+img {
   height: 100px;
 }
 
-.bubble{
+.bubble {
   animation: bgcolor 1s ease infinite;
   background-size: 400% 400%;
   border-radius: 50%;
@@ -16,7 +17,7 @@ img{
   width: 100px;
 }
 
-.container{
+.container {
   box-shadow: 1px 1px 2px 3px #ccc;
   display: inline-block;
   height: 500px;
@@ -24,7 +25,7 @@ img{
   width: 47%;
 }
 
-.container:hover{
+.container:hover {
   box-shadow: 3px 3px 5px 6px #ccc;
 }
 
@@ -32,9 +33,11 @@ img{
   0% {
     background-position: 0% 50%
   }
+
   50% {
     background-position: 100% 50%
   }
+
   100% {
     background-position: 0% 50%
   }
