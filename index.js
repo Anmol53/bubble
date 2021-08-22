@@ -2,7 +2,7 @@ const customizeBubbles = (input) => {
 	console.log(input.speed.value + " " + input.size.value);
 	generateBubbles({
 		id: "bubble_container",
-		n: 15,
+		n: input.numberOfBubbles.value,
 		color: input.color.value,
 		speed: input.speed.value,
 		size: input.size.value,
@@ -63,25 +63,27 @@ function randomGradientGenerator() {
 function bubbleMotion(parentId, id, speed = 8, size) {
 	let parent = document.getElementById(parentId);
 	let elem = document.getElementById(id);
+	let xD = Math.random() * speed;
+	let yD = Math.random() * speed;
 	let dim = parent.getBoundingClientRect();
 	let top = 0;
-	let bottom = dim.height - size - speed;
+	let bottom = dim.height - size;
 	let left = 0;
-	let right = dim.width - size - speed;
+	let right = dim.width - size;
 	let posX = left + 10;
 	let posY = top + 10;
 	setInterval(move, 25);
-	let xD = Math.random() * speed;
-	let yD = Math.random() * speed;
 	function move() {
+		posX += xD;
+		posY += yD;
 		if (posX <= left || posX >= right) {
 			xD *= -1;
+			posX += xD;
 		}
 		if (posY <= top || posY >= bottom) {
 			yD *= -1;
+			posY += yD;
 		}
-		posX += xD;
-		posY += yD;
 		elem.style.left = posX + "px";
 		elem.style.top = posY + "px";
 	}
