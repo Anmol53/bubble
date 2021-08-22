@@ -1,3 +1,10 @@
+window.addEventListener("DOMContentLoaded", (event) => {
+	const body = document.querySelector("body");
+	const { backgroundColor, backgroundImage } = randomGradientGenerator();
+	body.style.backgroundColor = backgroundColor;
+	body.style.backgroundImage = backgroundImage;
+});
+
 const customizeBubbles = (input) => {
 	console.log(input.speed.value + " " + input.size.value);
 	generateBubbles({
