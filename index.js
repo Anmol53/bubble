@@ -1,9 +1,13 @@
+/* =============== Add Random Background color to Body =============== */
+
 window.addEventListener("DOMContentLoaded", (event) => {
 	const body = document.querySelector("body");
 	const { backgroundColor, backgroundImage } = randomGradientGenerator();
 	body.style.backgroundColor = backgroundColor;
 	body.style.backgroundImage = backgroundImage;
 });
+
+/* ================ Recalculate Dimensions on Resize ================ */
 
 let resizeTimeout;
 window.addEventListener("resize", (event) => {
@@ -20,10 +24,14 @@ window.addEventListener("resize", (event) => {
 	}, 100);
 });
 
+/* ================ Display Range Input updated Value ================ */
+
 const updateValues = (ele) => {
 	const display = document.querySelector(`#${ele.name}_display`);
 	display.innerText = `${ele.value} ${ele.getAttribute("data-unit")}`;
 };
+
+/* ======== Button handler for generating Customized bubbles ========= */
 
 const customizeBubbles = (input) => {
 	generateBubbles({
@@ -34,6 +42,8 @@ const customizeBubbles = (input) => {
 		size: input.size.value,
 	});
 };
+
+/* ================== Generate Customized bubbles ================== */
 
 async function generateBubbles({ id, n, color, speed, size = 100 } = {}) {
 	const container = document.getElementById(id);
@@ -66,15 +76,21 @@ async function generateBubbles({ id, n, color, speed, size = 100 } = {}) {
 	}
 }
 
+/* ============= Hold the code for given milliseconds ============= */
+
 function sleep(ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
+
+/* ==================== Generate Random Colour ==================== */
 
 function randomColorGenerator() {
 	let x = Math.random();
 	let randomColor = Math.floor(x * 16777215).toString(16);
 	return `#${randomColor}`;
 }
+
+/* ==================== Generate Random Gradient ==================== */
 
 function randomGradientGenerator() {
 	let x = Math.random();
@@ -85,6 +101,8 @@ function randomGradientGenerator() {
 		backgroundImage: `linear-gradient(90deg, #${randomColor1} 0%, #${randomColor2} 100%)`,
 	};
 }
+
+/* ================= Add motions in bubble ================= */
 
 function bubbleMotion(parentId, id, speed = 8, size) {
 	let parent = document.getElementById(parentId);
