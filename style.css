@@ -52,6 +52,60 @@ main {
 	list-style: none;
 }
 
+.input_container ul li {
+	padding: 1rem 0rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.input_container input[type="text"] {
+	background-color: rgba(100, 100, 100, 0.1);
+	outline: none;
+	padding: 0.5rem 2rem;
+	box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.25),
+		-1px -1px 6px 2px rgba(0, 0, 0, 0.22);
+	transition: 0.4s;
+	color: white;
+	border: 2px solid rgba(0, 0, 0, 0);
+}
+
+.input_container input[type="text"]:focus {
+	border: 2px solid rgb(100, 100, 100);
+}
+
+.input_container .slider_info {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.input_container input[type="text"]::placeholder {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.input_container button {
+	align-self: center;
+	background-color: rgba(0, 0, 0, 0);
+	outline: none;
+	border: none;
+	padding: 0.5rem 2rem;
+	border-radius: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.25),
+		-1px -1px 6px 2px rgba(0, 0, 0, 0.22);
+	cursor: pointer;
+	transition: 0.4s;
+	color: white;
+	transform: scale(1.1, 1.1);
+}
+
+.input_container button:active {
+	transform: scale(1, 1);
+	box-shadow: 1px 1px 6px 3px rgba(0, 0, 0, 0.25),
+		-1px -1px 6px 3px rgba(0, 0, 0, 0.22);
+}
+
 /* ==========================================================================
    Bubble Styling
    ========================================================================== */

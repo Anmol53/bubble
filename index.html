@@ -11,39 +11,63 @@
 		<main>
 			<div class="container input_container">
 				<h1>Bubble Animation</h1>
-				<form action="" name="user_input">
+				<form id="input_form" action="" name="user_input">
 					<ul>
 						<li>
 							<label for="speed_input">Speed</label>
 							<input
 								type="range"
 								min="1"
-								max="100"
+								max="30"
 								name="speed"
 								id="speed_input"
+								value="8"
+								oninput="updateValues(this)"
+								data-unit="Unit"
 							/>
+							<div class="slider_info">
+								<span>1</span>
+								<span id="speed_display">8 Unit</span>
+								<span>30</span>
+							</div>
 						</li>
 						<li>
 							<label for="size_input">Bubble Size (px)</label>
 							<input
 								type="range"
-								min="1"
-								max="100"
+								min="20"
+								max="150"
 								name="size"
 								id="size_input"
+								value="100"
+								oninput="updateValues(this)"
+								data-unit="px"
 							/>
+							<div class="slider_info">
+								<span>20</span>
+								<span id="size_display">100 px</span>
+								<span>150</span>
+							</div>
 						</li>
 						<li>
 							<label for="numberOfBubbles_input"
-								>Number of Bubble(n)</label
+								>Number of Bubble (n)</label
 							>
 							<input
 								type="range"
 								min="1"
-								max="100"
+								max="50"
 								name="numberOfBubbles"
 								id="numberOfBubbles_input"
+								value="10"
+								oninput="updateValues(this)"
+								data-unit=""
 							/>
+							<div class="slider_info">
+								<span>1</span>
+								<span id="numberOfBubbles_display">10 </span>
+								<span>50</span>
+							</div>
 						</li>
 						<li>
 							<label for="color_input">Bubble Colour</label>
@@ -51,7 +75,8 @@
 								type="text"
 								name="color"
 								id="color_input"
-								placeholder="Ex: #ff6b6b, yellow, linear-gradient(90deg, #D38312, #A83279)"
+								placeholder="HEX, RGB, Color Name, Gradients"
+								autocomplete="off"
 							/>
 						</li>
 						<li>

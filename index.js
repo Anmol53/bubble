@@ -5,8 +5,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
 	body.style.backgroundImage = backgroundImage;
 });
 
+const updateValues = (ele) => {
+	const display = document.querySelector(`#${ele.name}_display`);
+	display.innerText = `${ele.value} ${ele.getAttribute("data-unit")}`;
+};
+
 const customizeBubbles = (input) => {
-	console.log(input.speed.value + " " + input.size.value);
 	generateBubbles({
 		id: "bubble_container",
 		n: input.numberOfBubbles.value,
