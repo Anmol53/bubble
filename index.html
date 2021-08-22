@@ -5,20 +5,30 @@
   <meta charset="utf-8">
   <title>Bubbles</title>
   <link rel="stylesheet" href="style.css">
-  <script src="index.js" charset="utf-8"></script>
 </head>
 
-<body id="body" onload="randomGradientBackground('body')">
-  <!--     <script type="text/javascript">
-    generateBubbles('body', 25);
-    </script> -->
-  <div id="div1" class="container"></div>
+<body id="body">
+  <main>
+    <div class="container">
+      <form action="" name="user_input">
+        <input type="range" min="1" max="100" name="speed" id="speed_input">
+        <input type="range" min="1" max="100" name="size" id="size_input">
+        <input type="range" min="1" max="100" name="numberOfBubbles" id="numberOfBubbles_input">
+        <input type="text" name="color" id="color_input">
+        <button type="button" onclick="customizeBubbles(this.form)">Customize</button>
+      </form>
+    </div>
+    <br />
+    <div id="bubble_container" class="container"></div>
+  </main>
+  <script src="index.js" charset="utf-8"></script>
   <script type="text/javascript">
-    generateBubbles('div1', 14);
-  </script>
-  <div id="div2" class="container"></div>
-  <script type="text/javascript">
-    generateBubbles('div2', 6);
+    generateBubbles({
+      id: 'bubble_container',
+      n: 10,
+      speed: 10,
+      size: 100
+    });
   </script>
 </body>
 

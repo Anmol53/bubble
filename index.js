@@ -1,14 +1,42 @@
-async function generateBubbles(id, n) {
+const customizeBubbles = (input) => {
+	console.log(input.speed.value + " " + input.size.value);
+	generateBubbles({
+		id: "bubble_container",
+		n: 15,
+		color: input.color.value,
+		speed: input.speed.value,
+		size: input.size.value,
+	});
+};
+
+async function generateBubbles({ id, n, color, speed, size = 100 } = {}) {
+	const container = document.getElementById(id);
+	const toDel = [];
+	const children = container.children;
+	for (let i = 0; i < children.length; i++) {
+		if (children[i].id.startsWith(`${id}_bubble_`)) {
+			toDel.push(children[i]);
+		}
+	}
+	toDel.forEach((item) => item.remove());
 	for (let i = 1; i <= n; i++) {
 		let bubble = document.createElement("div");
-		bubble.id = id + "_bubble_" + i;
+		bubble.id = `${id}_bubble_"${i}`;
 		bubble.classList.add("bubble");
 		bubble.innerHTML =
 			'<img src="http://anmolagrawal.tech/images/bubble2.png">';
+		let backgroundColor = color;
+		let backgroundImage = color;
+		if (!color) {
+			backgroundColor = randomColorGenerator();
+		}
+		bubble.style.backgroundColor = backgroundColor;
+		bubble.style.backgroundImage = backgroundImage;
+		bubble.style.height = `${size}px`;
+		bubble.style.width = `${size}px`;
 		await sleep(150);
-		document.getElementById(id).appendChild(bubble);
-		randomGradientBackground(bubble.id);
-		bubbleMotion(id, bubble.id);
+		container.appendChild(bubble);
+		bubbleMotion(id, bubble.id, speed, size);
 	}
 }
 
@@ -16,33 +44,35 @@ function sleep(ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function randomGradientBackground(id) {
-	let elem = document.getElementById(id);
+function randomColorGenerator() {
+	let x = Math.random();
+	let randomColor = Math.floor(x * 16777215).toString(16);
+	return `#${randomColor}`;
+}
+
+function randomGradientGenerator() {
 	let x = Math.random();
 	let randomColor1 = Math.floor(x * 16777215).toString(16);
 	let randomColor2 = Math.floor(x * 16700000).toString(16);
-	elem.style.backgroundColor = "#" + randomColor1;
-	elem.style.backgroundImage =
-		"linear-gradient(90deg, #" +
-		randomColor1 +
-		" 0%, #" +
-		randomColor2 +
-		" 100%)";
+	return {
+		backgroundColor: `#${randomColor1}`,
+		backgroundImage: `linear-gradient(90deg, #${randomColor1} 0%, #${randomColor2} 100%)`,
+	};
 }
 
-function bubbleMotion(parentId, id) {
+function bubbleMotion(parentId, id, speed = 8, size) {
 	let parent = document.getElementById(parentId);
-	let dim = parent.getBoundingClientRect();
-	let top = dim.bottom - dim.height;
-	let bottom = dim.bottom - 108;
-	let left = dim.right - dim.width;
-	let right = dim.right - 108;
 	let elem = document.getElementById(id);
+	let dim = parent.getBoundingClientRect();
+	let top = 0;
+	let bottom = dim.height - size - speed;
+	let left = 0;
+	let right = dim.width - size - speed;
 	let posX = left + 10;
 	let posY = top + 10;
-	var id = setInterval(move, 25);
-	let xD = Math.random() * 8;
-	let yD = Math.random() * 8;
+	setInterval(move, 25);
+	let xD = Math.random() * speed;
+	let yD = Math.random() * speed;
 	function move() {
 		if (posX <= left || posX >= right) {
 			xD *= -1;
