@@ -5,6 +5,21 @@ window.addEventListener("DOMContentLoaded", (event) => {
 	body.style.backgroundImage = backgroundImage;
 });
 
+let resizeTimeout;
+window.addEventListener("resize", (event) => {
+	clearTimeout(resizeTimeout);
+	resizeTimeout = setTimeout(() => {
+		const input = document.querySelector("#input_form");
+		generateBubbles({
+			id: "bubble_container",
+			n: input.numberOfBubbles.value,
+			color: input.color.value,
+			speed: input.speed.value,
+			size: input.size.value,
+		});
+	}, 100);
+});
+
 const updateValues = (ele) => {
 	const display = document.querySelector(`#${ele.name}_display`);
 	display.innerText = `${ele.value} ${ele.getAttribute("data-unit")}`;
