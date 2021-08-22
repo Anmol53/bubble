@@ -13,7 +13,7 @@ body {
 main {
 	background-color: rgba(0, 0, 0, 0.7);
 	display: flex;
-	gap: 0.5rem;
+	gap: 1rem;
 	flex-wrap: wrap;
 	justify-content: center;
 	min-height: 100vh;
@@ -39,12 +39,16 @@ main {
    ========================================================================== */
 
 .input_container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 	flex: 1 1 400px;
 	padding: 2rem 1rem;
 	color: white;
 }
 
 .input_container h1 {
+	text-align: center;
 	padding: 1rem 0;
 }
 
@@ -104,6 +108,20 @@ main {
 	transform: scale(1, 1);
 	box-shadow: 1px 1px 6px 3px rgba(0, 0, 0, 0.25),
 		-1px -1px 6px 3px rgba(0, 0, 0, 0.22);
+}
+
+.input_container .note {
+	background-color: rgba(0, 0, 0, 0.4);
+	border-radius: 20px;
+	padding: 1rem;
+}
+
+.input_container .note h2 {
+	padding: 1rem 0.5rem;
+}
+
+.input_container .note li {
+	padding: 0.5rem;
 }
 
 /* ==========================================================================
