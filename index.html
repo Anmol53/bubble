@@ -1,35 +1,81 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8" />
+		<title>Bubbles</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+	</head>
 
-<head>
-  <meta charset="utf-8">
-  <title>Bubbles</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body id="body">
-  <main>
-    <div class="container">
-      <form action="" name="user_input">
-        <input type="range" min="1" max="100" name="speed" id="speed_input">
-        <input type="range" min="1" max="100" name="size" id="size_input">
-        <input type="range" min="1" max="100" name="numberOfBubbles" id="numberOfBubbles_input">
-        <input type="text" name="color" id="color_input">
-        <button type="button" onclick="customizeBubbles(this.form)">Customize</button>
-      </form>
-    </div>
-    <br />
-    <div id="bubble_container" class="container"></div>
-  </main>
-  <script src="index.js" charset="utf-8"></script>
-  <script type="text/javascript">
-    generateBubbles({
-      id: 'bubble_container',
-      n: 10,
-      speed: 10,
-      size: 100
-    });
-  </script>
-</body>
-
+	<body id="body">
+		<main>
+			<div class="container input_container">
+				<h1>Bubble Animation</h1>
+				<form action="" name="user_input">
+					<ul>
+						<li>
+							<label for="speed_input">Speed</label>
+							<input
+								type="range"
+								min="1"
+								max="100"
+								name="speed"
+								id="speed_input"
+							/>
+						</li>
+						<li>
+							<label for="size_input">Bubble Size (px)</label>
+							<input
+								type="range"
+								min="1"
+								max="100"
+								name="size"
+								id="size_input"
+							/>
+						</li>
+						<li>
+							<label for="numberOfBubbles_input"
+								>Number of Bubble(n)</label
+							>
+							<input
+								type="range"
+								min="1"
+								max="100"
+								name="numberOfBubbles"
+								id="numberOfBubbles_input"
+							/>
+						</li>
+						<li>
+							<label for="color_input">Bubble Colour</label>
+							<input
+								type="text"
+								name="color"
+								id="color_input"
+								placeholder="Ex: #ff6b6b, yellow, linear-gradient(90deg, #D38312, #A83279)"
+							/>
+						</li>
+						<li>
+							<button
+								type="button"
+								onclick="customizeBubbles(this.form)"
+							>
+								Customize
+							</button>
+						</li>
+					</ul>
+				</form>
+			</div>
+			<br />
+			<div id="bubble_container" class="container bubble_container"></div>
+		</main>
+		<script src="index.js" charset="utf-8"></script>
+		<script type="text/javascript">
+			generateBubbles({
+				id: "bubble_container",
+				n: 10,
+				speed: 10,
+				size: 100,
+			});
+		</script>
+	</body>
 </html>
