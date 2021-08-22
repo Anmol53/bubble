@@ -93,12 +93,11 @@ function randomColorGenerator() {
 /* ==================== Generate Random Gradient ==================== */
 
 function randomGradientGenerator() {
-	let x = Math.random();
-	let randomColor1 = Math.floor(x * 16777215).toString(16);
-	let randomColor2 = Math.floor(x * 16700000).toString(16);
+	let randomColor1 = randomColorGenerator();
+	let randomColor2 = randomColorGenerator();
 	return {
 		backgroundColor: `#${randomColor1}`,
-		backgroundImage: `linear-gradient(90deg, #${randomColor1} 0%, #${randomColor2} 100%)`,
+		backgroundImage: `linear-gradient(90deg, ${randomColor1} 0%, ${randomColor2} 100%)`,
 	};
 }
 
