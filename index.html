@@ -1,124 +1,119 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="title" content="Bubbles - Customized Bubble Generator" />
-		<meta
-			name="description"
-			content="This website generates random bubble animation. User can customize the animation as per there need"
-		/>
-		<meta name="author" content="Anmol Agrawal, anmol.ag53@gmail.com" />
-		<title>Bubbles</title>
-		<link rel="stylesheet" href="style.css" />
-	</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="Bubbles - Customized Bubble Generator" />
+    <meta
+      name="description"
+      content="This website generates random bubble animation. User can customize the animation as per there need"
+    />
+    <meta name="author" content="Anmol Agrawal, anmol.ag53@gmail.com" />
+    <title>Bubbles</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-	<body id="body">
-		<main>
-			<div class="container input_container">
-				<h1>Bubble Animation</h1>
-				<form id="input_form" action="" name="user_input">
-					<ul>
-						<li>
-							<label for="speed_input">Speed</label>
-							<input
-								type="range"
-								min="1"
-								max="30"
-								name="speed"
-								id="speed_input"
-								value="8"
-								oninput="updateValues(this)"
-								data-unit="Unit"
-							/>
-							<div class="slider_info">
-								<span>1</span>
-								<span id="speed_display">8 Unit</span>
-								<span>30</span>
-							</div>
-						</li>
-						<li>
-							<label for="size_input">Bubble Size (px)</label>
-							<input
-								type="range"
-								min="20"
-								max="150"
-								name="size"
-								id="size_input"
-								value="100"
-								oninput="updateValues(this)"
-								data-unit="px"
-							/>
-							<div class="slider_info">
-								<span>20</span>
-								<span id="size_display">100 px</span>
-								<span>150</span>
-							</div>
-						</li>
-						<li>
-							<label for="numberOfBubbles_input"
-								>Number of Bubble</label
-							>
-							<input
-								type="range"
-								min="1"
-								max="50"
-								name="numberOfBubbles"
-								id="numberOfBubbles_input"
-								value="10"
-								oninput="updateValues(this)"
-								data-unit=""
-							/>
-							<div class="slider_info">
-								<span>1</span>
-								<span id="numberOfBubbles_display">10 </span>
-								<span>50</span>
-							</div>
-						</li>
-						<li>
-							<label for="color_input">Bubble Colour</label>
-							<input
-								type="text"
-								name="color"
-								id="color_input"
-								placeholder="HEX, RGB, Color Name, Gradients"
-								autocomplete="off"
-							/>
-						</li>
-						<li>
-							<button
-								type="button"
-								onclick="customizeBubbles(this.form)"
-							>
-								Customize
-							</button>
-						</li>
-					</ul>
-				</form>
-				<div class="note">
-					<h2>Default Values</h2>
-					<ul>
-						<li>Speed: 8</li>
-						<li>Size: 100px</li>
-						<li>Number of Bubbles: 10</li>
-						<li>
-							Colour: Assorted Color<br />(Left Colour input box
-							empty for Assorted Color)
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div id="bubble_container" class="container bubble_container"></div>
-		</main>
-		<script src="index.js" charset="utf-8"></script>
-		<script type="text/javascript">
-			generateBubbles({
-				id: "bubble_container",
-				n: 10,
-				speed: 10,
-				size: 100,
-			});
-		</script>
-	</body>
+  <body id="body">
+    <main>
+      <div class="container input_container">
+        <h1>Bubble Animation</h1>
+        <form id="input_form" action="" name="user_input">
+          <ul>
+            <li>
+              <label for="speed_input">Speed</label>
+              <input
+                type="range"
+                min="1"
+                max="30"
+                name="speed"
+                id="speed_input"
+                value="8"
+                oninput="updateValues(this)"
+                data-unit="Unit"
+              />
+              <div class="slider_info">
+                <span>1</span>
+                <span id="speed_display">8 Unit</span>
+                <span>30</span>
+              </div>
+            </li>
+            <li>
+              <label for="size_input">Bubble Size (px)</label>
+              <input
+                type="range"
+                min="20"
+                max="150"
+                name="size"
+                id="size_input"
+                value="100"
+                oninput="updateValues(this)"
+                data-unit="px"
+              />
+              <div class="slider_info">
+                <span>20</span>
+                <span id="size_display">100 px</span>
+                <span>150</span>
+              </div>
+            </li>
+            <li>
+              <label for="numberOfBubbles_input">Number of Bubble</label>
+              <input
+                type="range"
+                min="1"
+                max="50"
+                name="numberOfBubbles"
+                id="numberOfBubbles_input"
+                value="10"
+                oninput="updateValues(this)"
+                data-unit=""
+              />
+              <div class="slider_info">
+                <span>1</span>
+                <span id="numberOfBubbles_display">10 </span>
+                <span>50</span>
+              </div>
+            </li>
+            <li>
+              <label for="color_input">Bubble Colour</label>
+              <input
+                type="text"
+                name="color"
+                id="color_input"
+                placeholder="HEX, RGB, Color Name, Gradients"
+                autocomplete="off"
+              />
+            </li>
+            <li>
+              <button type="button" onclick="customizeBubbles(this.form)">
+                Customize
+              </button>
+            </li>
+          </ul>
+        </form>
+        <div class="note">
+          <h2>Default Values</h2>
+          <ul>
+            <li>Speed: 8</li>
+            <li>Size: 100px</li>
+            <li>Number of Bubbles: 10</li>
+            <li>
+              Color: Assorted Color<br />(Left Colour input box empty for
+              Assorted Color)
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="bubble_container" class="container bubble_container"></div>
+    </main>
+    <script src="index.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      generateBubbles({
+        id: "bubble_container",
+        n: 10,
+        speed: 10,
+        size: 100,
+      });
+    </script>
+  </body>
 </html>
