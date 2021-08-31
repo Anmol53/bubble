@@ -13,6 +13,21 @@ body {
     overflow-x: hidden;
 }
 
+body::-webkit-scrollbar {
+    width: 0.25rem;
+    height: 0.25em;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: black;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #5c511f; /* fallback for old browsers */
+    background: linear-gradient(180deg, #5c511f, #e5c5ae);
+    outline: 1px solid #708090;
+}
+
 main {
     background-color: rgba(0, 0, 0, 0.7);
     display: flex;
