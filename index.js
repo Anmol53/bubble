@@ -60,7 +60,7 @@ async function generateBubbles({ id, n, color, speed, size = 100 } = {}) {
 		bubble.id = `${id}_bubble_"${i}`;
 		bubble.classList.add("bubble");
 		bubble.innerHTML =
-			'<img src="http://anmolagrawal.tech/images/bubble2.png">';
+			'<img src="http://anmolagrawal.dev/images/bubble2.png">';
 		let backgroundColor = color;
 		let backgroundImage = color;
 		if (!color) {
